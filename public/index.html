@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <meta
+      name="description"
+      content="Drop a YouTube link. Choose MP4 video or MP3 audio, pick your quality, and take your favorite moments offline."
+    />
+    <title>Drop — Good videos. Yours to keep.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="config.js" defer></script>
+    <script src="vendor/bootstrap.bundle.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="i-down" viewBox="0 0 24 24">
+        <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" />
+      </symbol>
+      <symbol id="i-link" viewBox="0 0 24 24">
+        <path
+          d="m10 14 4-4m-5 7-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m0 8a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1"
+        />
+      </symbol>
+      <symbol id="i-video" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3" />
+        <path d="m10 9 5 3-5 3z" />
+      </symbol>
+      <symbol id="i-music" viewBox="0 0 24 24">
+        <path d="M9 17V5l11-2v12M9 9l11-2" />
+        <ellipse cx="6" cy="18" rx="3" ry="3" />
+        <ellipse cx="17" cy="16" rx="3" ry="3" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24">
+        <path d="M4 7h7m4 0h5M4 17h3m4 0h9" />
+        <circle cx="13" cy="7" r="2" />
+        <circle cx="9" cy="17" r="2" />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          d="M9 19c-4 1-4-2-6-2m12 5v-3.4a3 3 0 0 0-.8-2.3c2.7-.3 5.6-1.3 5.6-6A4.7 4.7 0 0 0 18.5 7c.1-.3.6-1.6-.1-3.2 0 0-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.6 3.5 5.6 3.8 5.6 3.8 4.9 5.4 5.4 6.7 5.5 7a4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.9 5.7 5.6 6A3 3 0 0 0 9 18.5V22"
+        />
+      </symbol>
+      <symbol id="i-paste" viewBox="0 0 24 24">
+        <path d="M9 5H6a2 2 0 0 0-2 2v13h15V7a2 2 0 0 0-2-2h-2" />
+        <rect x="9" y="3" width="6" height="4" rx="1" />
+      </symbol>
+    </svg>
+    <header class="site-header">
+      <nav
+        class="container d-flex align-items-center justify-content-between"
+        aria-label="Main navigation"
+      >
+        <a class="brand" href="./" aria-label="Drop home"
+          ><span class="brand-mark"
+            ><svg class="icon"><use href="#i-down" /></svg></span
+          >drop<span class="brand-dot">.</span></a
+        >
+        <div class="nav-links d-flex align-items-center">
+          <a class="nav-text d-none d-sm-inline" href="#how-it-works"
+            >How it works</a
+          >
+          <a
+            class="github-link"
+            href="https://github.com/NorihyDev/youtube-video-downloader"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg class="icon"><use href="#i-github" /></svg
+            ><span class="d-none d-sm-inline">GitHub</span
+            ><span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="hero row align-items-center" aria-labelledby="hero-title">
+        <div class="col-lg-7 hero-copy">
+          <div class="eyebrow">
+            <span class="little-star">✦</span> YOUR FAVORITES, OFFLINE
+          </div>
+          <h1 id="hero-title">Good videos.<br /><span>Yours to keep.</span></h1>
+          <p class="hero-description">
+            A little link. A lot of possibilities.<br />Save YouTube videos and
+            audio in the quality you love.
+          </p>
+          <div class="hero-tags">
+            <span
+              ><svg class="icon"><use href="#i-check" /></svg>MP4 & MP3</span
+            ><span
+              ><svg class="icon"><use href="#i-check" /></svg>Your choice of
+              quality</span
+            ><span
+              ><svg class="icon"><use href="#i-check" /></svg>Public on
+              GitHub</span
+            >
+          </div>
+        </div>
+        <div class="col-lg-5 hero-art" aria-hidden="true">
+          <div class="art-orbit"></div>
+          <span class="art-spark spark-one">✳</span
+          ><span class="art-spark spark-two">✦</span>
+          <div class="art-video">
+            <div class="art-video-top">
+              <span class="art-dots">● ● ●</span
+              ><span>YOUR NEXT OFFLINE FAVORITE</span>
+            </div>
+            <div class="art-landscape">
+              <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="sky" x2="0" y2="1">
+                    <stop stop-color="#b9d5c8" />
+                    <stop offset="1" stop-color="#e0e5ba" />
+                  </linearGradient>
+                  <linearGradient id="hill" x2="0.7" y2="1">
+                    <stop stop-color="#697d67" />
+                    <stop offset="1" stop-color="#a0af82" />
+                  </linearGradient>
+                </defs>
+                <rect width="340" height="170" fill="url(#sky)" />
+                <circle cx="247" cy="43" r="23" fill="#fcf4c5" />
+                <path
+                  d="M0 129 67 44l83 97 68-91 122 110v10H0"
+                  fill="#9aae97"
+                />
+                <path
+                  d="M0 153 109 74l99 82 81-49 51 47v16H0"
+                  fill="url(#hill)"
+                />
+                <path d="m96 84 13-10 30 25-24-6z" fill="#e1e6cd" />
+                <path d="M0 169q85-40 157-4t183-6v11H0" fill="#566b56" />
+              </svg>
+              <div class="art-play">▶</div>
+              <span class="art-duration">04:28</span>
+            </div>
+            <div class="art-caption">
+              <div class="art-caption-lines"><span></span><span></span></div>
+              <span class="art-hd">HD</span>
+            </div>
+          </div>
+          <div class="art-audio">
+            <div class="audio-disc">
+              <svg class="icon"><use href="#i-music" /></svg>
+            </div>
+            <div>
+              <strong>Just the good stuff.</strong><span>MP3 · 320 kbps</span>
+            </div>
+            <div class="waveform">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="art-sticker">
+            <svg class="icon"><use href="#i-check" /></svg> Saved for later
+          </div>
+          <div class="art-note">one link. your way. <span>⤴</span></div>
+        </div>
+      </section>
+
+      <section class="download-section" aria-labelledby="converter-title">
+        <div
+          class="section-topline d-flex align-items-center justify-content-between"
+        >
+          <span class="section-index">01 / LET’S MAKE IT YOURS</span
+          ><button
+            class="connection-status"
+            id="connection-button"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#server-modal"
+          >
+            <span class="status-dot" id="status-dot"></span
+            ><span id="connection-label">Checking connection</span
+            ><svg class="icon"><use href="#i-sliders" /></svg>
+          </button>
+        </div>
+        <div class="converter-card">
+          <div
+            class="d-flex align-items-start justify-content-between converter-heading"
+          >
+            <div>
+              <h2 id="converter-title">Drop your link here.</h2>
+              <p>Pick a format. Find your quality. Make it yours.</p>
+            </div>
+            <span class="converter-mini-icon d-none d-sm-flex"
+              ><svg class="icon"><use href="#i-down" /></svg
+            ></span>
+          </div>
+          <form id="download-form" novalidate>
+            <label class="form-label" for="video-url">YouTube video URL</label>
+            <div class="url-field">
+              <svg class="icon url-icon"><use href="#i-link" /></svg
+              ><input
+                id="video-url"
+                type="url"
+                class="form-control"
+                placeholder="https://www.youtube.com/watch?v=..."
+                autocomplete="off"
+                required
+                aria-describedby="url-help"
+                maxlength="2048"
+              /><button class="paste-button" id="paste-button" type="button">
+                <svg class="icon"><use href="#i-paste" /></svg
+                ><span>Paste</span>
+              </button>
+            </div>
+            <p id="url-help" class="input-help">
+              YouTube videos, Shorts, and youtu.be links welcome.
+            </p>
+            <div class="row g-3 converter-options align-items-end">
+              <fieldset class="col-md-5 format-fieldset">
+                <legend class="form-label">File format</legend>
+                <div class="format-toggle">
+                  <input
+                    class="btn-check"
+                    type="radio"
+                    name="format"
+                    id="format-mp4"
+                    value="mp4"
+                    checked
+                  /><label class="format-option" for="format-mp4"
+                    ><svg class="icon"><use href="#i-video" /></svg>Video<span
+                      >MP4</span
+                    ></label
+                  ><input
+                    class="btn-check"
+                    type="radio"
+                    name="format"
+                    id="format-mp3"
+                    value="mp3"
+                  /><label class="format-option" for="format-mp3"
+                    ><svg class="icon"><use href="#i-music" /></svg>Audio<span
+                      >MP3</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <div class="col-md-3">
+                <label class="form-label" id="quality-label" for="quality"
+                  >Video quality</label
+                ><select class="form-select quality-select" id="quality">
+                  <option value="best">Best available</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <button
+                  class="btn download-button w-100"
+                  id="download-button"
+                  type="submit"
+                >
+                  <span id="download-button-text">Get my video</span
+                  ><svg class="icon"><use href="#i-arrow" /></svg
+                  ><span
+                    class="spinner-border spinner-border-sm d-none"
+                    id="button-spinner"
+                    aria-hidden="true"
+                  ></span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div
+            id="notice"
+            class="notice d-none"
+            role="status"
+            aria-live="polite"
+          ></div>
+          <div id="video-preview" class="video-preview d-none">
+            <img id="preview-image" alt="" referrerpolicy="no-referrer" />
+            <div class="preview-text">
+              <span class="preview-eyebrow">YOUR PICK</span>
+              <h3 id="preview-title"></h3>
+              <p>
+                <span id="preview-author"></span><span class="meta-dot">·</span
+                ><span id="preview-duration"></span>
+              </p>
+            </div>
+            <span class="preview-check"
+              ><svg class="icon"><use href="#i-check" /></svg
+            ></span>
+          </div>
+          <div
+            id="progress-panel"
+            class="progress-panel d-none"
+            aria-live="polite"
+          >
+            <div class="d-flex justify-content-between">
+              <span id="progress-message">Connecting…</span
+              ><span id="progress-percent">0%</span>
+            </div>
+            <div
+              class="progress"
+              role="progressbar"
+              aria-label="Download progress"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="progress-track"
+            >
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+          </div>
+          <div id="ready-panel" class="ready-panel d-none">
+            <div>
+              <strong
+                ><svg class="icon"><use href="#i-check" /></svg> A little more
+                offline freedom.</strong
+              >
+              <p id="ready-description">Your file is ready to save.</p>
+            </div>
+            <a id="save-file" class="btn save-button" download
+              ><svg class="icon"><use href="#i-down" /></svg>Save file</a
+            >
+          </div>
+          <div class="converter-footnote">
+            <span class="privacy-mark">⌁</span
+            ><span
+              >Processed by your download server. Files are automatically
+              cleared after 30 minutes.</span
+            >
+          </div>
+        </div>
+        <div class="below-converter">
+          <span>Less scrolling. More keeping.</span
+          ><span
+            >Only download content you own or have permission to save.</span
+          >
+        </div>
+      </section>
+
+      <section
+        class="how-section"
+        id="how-it-works"
+        aria-labelledby="how-title"
+      >
+        <div class="how-heading">
+          <div>
+            <span class="section-index">02 / SIMPLE BY DESIGN</span>
+            <h2 id="how-title">Three steps. Zero fuss.</h2>
+          </div>
+          <p>Your offline library starts here.</p>
+        </div>
+        <div class="row g-4 steps-row">
+          <div class="col-md-4">
+            <div class="step">
+              <div class="step-top">
+                <span class="step-icon step-link"
+                  ><svg class="icon"><use href="#i-link" /></svg></span
+                ><span class="step-number">01</span>
+              </div>
+              <h3>Find something good.</h3>
+              <p>
+                Copy the link to a YouTube video you’d like to keep. Shorts
+                work, too.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step">
+              <div class="step-top">
+                <span class="step-icon step-sliders"
+                  ><svg class="icon"><use href="#i-sliders" /></svg></span
+                ><span class="step-number">02</span>
+              </div>
+              <h3>Make it your own.</h3>
+              <p>
+                Choose MP4 for the full picture or MP3 for just the sound. Pick
+                your quality.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step">
+              <div class="step-top">
+                <span class="step-icon step-save"
+                  ><svg class="icon"><use href="#i-down" /></svg></span
+                ><span class="step-number">03</span>
+              </div>
+              <h3>Take it with you.</h3>
+              <p>
+                Save your file and enjoy it on your terms. On the train. In the
+                air. Anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq-section row g-4" aria-labelledby="faq-title">
+        <div class="col-md-4">
+          <span class="section-index">THE LITTLE DETAILS</span>
+          <h2 id="faq-title">Good to know.</h2>
+        </div>
+        <div class="col-md-8">
+          <details>
+            <summary>Which quality should I choose?</summary>
+            <p>
+              MP4 quality is based on the resolutions available in the original
+              video. “Best available” keeps the highest supported resolution.
+              MP3 offers 128, 192, 256, or 320 kbps; a higher bitrate produces a
+              larger file and cannot improve the original audio.
+            </p>
+          </details>
+          <details>
+            <summary>How does the download server work?</summary>
+            <p>
+              Drop uses a local Python server with yt-dlp and FFmpeg. Start it
+              on your computer, then open this website locally or connect the
+              public page using the connection button above. The public GitHub
+              page does not process files on its own. Your browser may ask to
+              allow access to your local network.
+            </p>
+          </details>
+          <details>
+            <summary>Are there any limits?</summary>
+            <p>
+              The default local server accepts individual videos up to two hours
+              and files up to 1 GB. Live streams, playlists, private videos, and
+              protected content are not supported. YouTube may sometimes
+              restrict downloads. Save only content you own or have permission
+              to download.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing-note">
+        <span>✦</span> A small tool for the things worth keeping.
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div
+        class="container d-flex flex-wrap align-items-center justify-content-between gap-3"
+      >
+        <a class="brand footer-brand" href="./"
+          >drop<span class="brand-dot">.</span></a
+        ><span
+          >Built by
+          <a
+            href="https://github.com/NorihyDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >NorihyDev</a
+          >. Made for your offline moments.</span
+        ><a
+          href="https://github.com/NorihyDev/youtube-video-downloader"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View the source <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </footer>
+    <div
+      class="modal fade"
+      id="server-modal"
+      tabindex="-1"
+      aria-labelledby="server-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="server-modal-title">
+              Your download server
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form id="server-form">
+            <div class="modal-body">
+              <p>
+                Start the server on your computer, then connect it here. This
+                setting is saved only in this browser.
+              </p>
+              <label class="form-label" for="server-url">Server address</label
+              ><input
+                class="form-control"
+                id="server-url"
+                type="url"
+                placeholder="http://127.0.0.1:8000"
+                maxlength="2048"
+              />
+              <p class="input-help mt-2">
+                Leave empty when you open the website directly from the server.
+                Public pages need HTTPS for remote servers; localhost is
+                supported where the browser permits it.
+              </p>
+              <div id="server-notice" role="status" class="notice d-none"></div>
+              <a
+                class="setup-link"
+                href="https://github.com/NorihyDev/youtube-video-downloader#run-locally"
+                target="_blank"
+                rel="noopener noreferrer"
+                >See setup instructions ↗</a
+              >
+            </div>
+            <div class="modal-footer">
+              <button class="btn settings-save" type="submit">
+                Save & connect
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
