@@ -76,7 +76,7 @@ python -m pytest -q
 node --check public/app.js
 ```
 
-Backend tests cover URL validation, quality selection, metadata, job completion, file delivery, expiration, concurrency, request limits, and browser origins. Network access to YouTube is mocked in automated tests.
+Backend tests cover URL validation, quality selection, metadata, job completion, file delivery, expiration, concurrency, request limits, and browser origins. Conversion tests generate a short clip and exercise real yt-dlp downloads and FFmpeg processing; they skip if FFmpeg is absent. YouTube requests are mocked in automated tests.
 
 ## Limitations
 
