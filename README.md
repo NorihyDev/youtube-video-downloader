@@ -2,11 +2,11 @@
 
 A Bootstrap website for saving YouTube videos as **MP4** or extracting audio as **MP3**, with selectable quality, video previews, and live download progress.
 
-**[Public website](https://norihydev.github.io/youtube-video-downloader/)** · **[Source](https://github.com/NorihyDev/youtube-video-downloader)**
+**[Source](https://github.com/NorihyDev/youtube-video-downloader)**
 
 ## Run locally
 
-The public GitHub Pages website hosts the interface. Downloads are processed by a **local server on your computer**, using Python, yt-dlp, and FFmpeg. Start the server below and open **http://127.0.0.1:8000** for the complete experience. You can also connect the public page to `http://127.0.0.1:8000` using its connection button; your browser may require local-network permission. If that connection is blocked, use the local website directly.
+The website runs on a **local server on your computer**, using Python, yt-dlp, and FFmpeg. Start the server below and open **http://127.0.0.1:8000** for the complete experience. The public GitHub Pages site has been unpublished, and automatic website publishing has been removed.
 
 ### Windows
 
@@ -49,7 +49,7 @@ docker run --rm -p 127.0.0.1:8000:8000 drop
 - Configurable connection address, stored in the visitor’s browser.
 - Automatic temporary-file cleanup and request/concurrency limits.
 - URL validation limited to individual YouTube videos and Shorts.
-- GitHub Actions for public Pages deployment and backend tests.
+- GitHub Actions for backend tests.
 
 ## Configuration
 
@@ -66,7 +66,7 @@ Windows `scripts/start.ps1` reads an optional `.env` file. Copy `.env.example` a
 
 Run **one server worker**: job state is in memory. Jobs cannot resume after a restart. Files stay on the download server until they expire or it restarts. A selected video resolution is a ceiling; yt-dlp chooses the best matching stream at or below it.
 
-For a future hosted server, the included `Dockerfile` and `render.yaml` provide a starting point. Hosting is optional and is not configured for the public page. YouTube may reject requests from data-center IP addresses. Configure `public/config.js` with the deployed server origin if you host the backend; visitor connection settings take precedence.
+For a future hosted server, the included `Dockerfile` and `render.yaml` provide a starting point. Hosting is optional and is not currently configured. YouTube may reject requests from data-center IP addresses. Configure `public/config.js` with the deployed server origin if you host the backend; visitor connection settings take precedence.
 
 ## Checks
 
